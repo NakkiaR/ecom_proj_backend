@@ -8,9 +8,17 @@ namespace eCommerceStarterCode.Models
     public class Account
     {
         public int AccountId { get; set; }
-        public int CustomerId { get; set; }
+
+        [ForeignKey("User")]
+
+        public int UserId { get; set; }
+
+        public User User { get; set; }
+
         public int PaymentMethodCode { get; set; }
+
         public string AccountName { get; set; }
+
         public string AccountDetails { get; set; }
         
     }

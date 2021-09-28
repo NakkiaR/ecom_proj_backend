@@ -22,7 +22,7 @@ namespace eCommerceStarterCode.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-      
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,7 @@ namespace eCommerceStarterCode.Data
 
             modelBuilder.Entity<Product>()
                 .HasData(
-                new Product { Price = 35, Name = "Star", Description = "It's a star.", Category = "Red Giant" }
+                new Product {ProductId=1, Price = 35, Name = "Star", Description = "It's a star." }
                 );
         }
 

@@ -8,10 +8,16 @@ namespace eCommerceStarterCode.Models
     public class Shipment
     {
         public int ShipmentId { get; set; }
-        public int OrderId { get; set; }
-        public int CustomerId { get; set; }
         public DateTime ShipmentArrivalDate { get; set; }
         public DateTime ShipmentDate { get; set; }
-        
+
+        [ForeignKey("Order")]
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
+
+        [ForeignKey("Customer")]
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
     }
 }

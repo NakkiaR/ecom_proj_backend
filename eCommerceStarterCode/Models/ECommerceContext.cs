@@ -64,6 +64,20 @@ namespace DatabaseFirstLINQ.Models
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .HasOne(p => p.Account)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__User_Id");
+
+                entity.HasOne(d => d.PaymentMethod)
+                    .HasOne(p => p.Account)
+                    .HasForeignKey(d => d.PaymentCodeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__PaymentCode_Id");
+
+
             });
 
             modelBuilder.Entity<ShoppingCart>(entity =>
@@ -78,13 +92,14 @@ namespace DatabaseFirstLINQ.Models
                     .WithMany(p => p.ShoppingCarts)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShoppingC__Produ__300424B4");
+                    .HasConstraintName("FK__ShoppingCarts_ProductId");
+
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.ShoppingCarts)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShoppingC__UserI__2F10007B");
+                    .HasConstraintName("FK__ShoppingCarts_UserId");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -150,7 +165,7 @@ namespace DatabaseFirstLINQ.Models
 
 
 
-        modelBuilder.Entity<UserRole>(entity =>
+        modelBuilder.Entity<PaymentMethod>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.RoleId });
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Models
 {
-    public class FinacialTransaction
+    public class FinancialTransaction
     {
         public int TransactionId { get; set; }
         public int AccountId { get; set; }

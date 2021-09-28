@@ -47,7 +47,7 @@ namespace DatabaseFirstLINQ.Models
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.Description)
-                    .HasMaxLength(255)
+                    .HasMaxLength(1000)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name)
@@ -58,9 +58,9 @@ namespace DatabaseFirstLINQ.Models
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
             });
 
-            modelBuilder.Entity<Role>(entity =>
+            modelBuilder.Entity<Account>(entity =>
             {
-                entity.Property(e => e.RoleName)
+                entity.Property(e => e.Account)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
@@ -99,12 +99,58 @@ namespace DatabaseFirstLINQ.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.RegistrationDate)
+                entity.Property(e => e.MemberSince)
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Street)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.City)   
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.State)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ZipCode)   // change data type to int or str is ok??
+                    .IsRequired()
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Phone)
+                    .IsRequired()
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+
+
             });
 
-            modelBuilder.Entity<UserRole>(entity =>
+
+
+
+        modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.RoleId });
 

@@ -263,6 +263,14 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Description = "It's a star",
+                            Name = "Red Giant"
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.FinancialTransaction", b =>
@@ -389,11 +397,45 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = 1,
-                            CategoryId = 0,
+                            CategoryId = 1,
                             Description = "It's a star.",
                             Name = "Star",
                             Price = 35
                         });
+                });
+
+            modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Shipment", b =>
@@ -402,6 +444,9 @@ namespace eCommerceStarterCode.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -412,14 +457,7 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<DateTime>("ShipmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("ShipmentId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Shipments");
                 });
@@ -595,19 +633,19 @@ namespace eCommerceStarterCode.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("eCommerceStarterCode.Models.Shipment", b =>
+            modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
                 {
-                    b.HasOne("eCommerceStarterCode.Models.Order", "Order")
+                    b.HasOne("eCommerceStarterCode.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
 
-                    b.Navigation("Order");
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });

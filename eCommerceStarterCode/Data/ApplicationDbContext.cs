@@ -22,15 +22,21 @@ namespace eCommerceStarterCode.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Category>()
+                .HasData(
+                new Category { CategoryId = 1, Name = "Red Giant", Description = "It's a star"}
+                );
+
             modelBuilder.Entity<Product>()
                 .HasData(
-                new Product {ProductId=1, Price = 35, Name = "Star", Description = "It's a star." }
+                new Product { ProductId = 1, Price = 35, Name = "Star", Description = "It's a star.", CategoryId = 1 }
                 );
         }
 

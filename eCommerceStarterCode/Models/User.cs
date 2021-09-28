@@ -16,6 +16,11 @@ namespace eCommerceStarterCode.Models
         public string Email { get; set; }
         public string MemberSince { get; set; }
 
+        [ForeignKey("IdentityUser")]
+
+        public string IdentityUserId { get; set; }
+
+        public IdentityUser IdentityUser { get; set; }
 
     }
 }

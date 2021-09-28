@@ -44,6 +44,8 @@ namespace DatabaseFirstLINQ.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            
+
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.Description)
@@ -58,8 +60,13 @@ namespace DatabaseFirstLINQ.Models
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
             });
 
+
             modelBuilder.Entity<Account>(entity =>
+
+
             {
+                entity.HasKey(e => new { e.UserId, e.PaymentCodeId });
+
                 entity.Property(e => e.Account)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -82,7 +89,7 @@ namespace DatabaseFirstLINQ.Models
 
             modelBuilder.Entity<ShoppingCart>(entity =>
             {
-                entity.HasKey(e => new { e.UserId, e.ProductId });
+                entity.HasKey(e => new { e.ProductId, e.UserId });
 
                 entity.ToTable("ShoppingCart");
 

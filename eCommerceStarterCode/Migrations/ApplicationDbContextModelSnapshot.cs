@@ -263,6 +263,14 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Description = "It's a star.",
+                            Name = "Red Giant"
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.FinancialTransaction", b =>
@@ -389,7 +397,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = 1,
-                            CategoryId = 0,
+                            CategoryId = 1,
                             Description = "It's a star.",
                             Name = "Star",
                             Price = 35
@@ -403,6 +411,9 @@ namespace eCommerceStarterCode.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -412,14 +423,7 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<DateTime>("ShipmentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("ShipmentId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Shipments");
                 });
@@ -593,23 +597,6 @@ namespace eCommerceStarterCode.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("eCommerceStarterCode.Models.Shipment", b =>
-                {
-                    b.HasOne("eCommerceStarterCode.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eCommerceStarterCode.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Order");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>

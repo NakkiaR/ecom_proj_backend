@@ -7,8 +7,15 @@ namespace eCommerceStarterCode.Models
 {
     public class ShoppingCart
     {
+
+        [ForeignKey("Identity User")]
+
+        public string 
+
         public int ProductId { get; set; }
         public int UserId { get; set; }
+
+        
        
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Models
 {
-    public class Shipments
+    public class Shipment
     {
         public int ShipmentId { get; set; }
         public int OrderId { get; set; }

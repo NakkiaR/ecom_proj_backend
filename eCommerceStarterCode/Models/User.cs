@@ -16,5 +16,6 @@ namespace eCommerceStarterCode.Models
         public string Email { get; set; }
         public string MemberSince { get; set; }
 
+
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Models
 {
-    public class PaymentMethods
+    public class PaymentMethod
     {
         public int PaymentCodeId { get; set; }
         public string Name { get; set; }

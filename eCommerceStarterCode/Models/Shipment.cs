@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,9 +16,9 @@ namespace eCommerceStarterCode.Models
         public int OrderId { get; set; }
         public Order Order { get; set; }
 
-        [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }
 
     }
 }

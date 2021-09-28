@@ -1,15 +1,16 @@
-﻿using eCommerceStarterCode.Configuration;
-using eCommerceStarterCode.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace eCommerceStarterCode.Data
-{
-    public class ApplicationDbContext : IdentityDbContext
+//namespace eCommerceStarterCode.Models
+//{
+    public class ApplicationContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions options)
+        public ApplicationContext(DbContextOptions options)
             :base(options)
         {
+
         }
 
         public DbSet<User> Users { get; set; }
@@ -27,11 +28,5 @@ namespace eCommerceStarterCode.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>()
-                .HasData(
-                new Product { Price = 35, Name = "Star", Description = "It's a star.", Category = "Red Giant" }
-                );
         }
-
-    }
-}
+//}

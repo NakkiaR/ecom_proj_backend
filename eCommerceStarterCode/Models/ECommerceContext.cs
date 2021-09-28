@@ -87,27 +87,27 @@ namespace DatabaseFirstLINQ.Models
 
             });
 
-            modelBuilder.Entity<ShoppingCart>(entity =>
-            {
-                entity.HasKey(e => new { e.ProductId, e.UserId });
+            //modelBuilder.Entity<ShoppingCart>(entity =>
+            //{
+            //    entity.HasKey(e => new { e.ProductId, e.UserId });
 
-                entity.ToTable("ShoppingCart");
+            //    entity.ToTable("ShoppingCart");
 
-                entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
+            //    entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
 
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.ShoppingCarts)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShoppingCarts_ProductId");
+            //    entity.HasOne(d => d.Product)
+            //        .WithMany(p => p.ShoppingCarts)
+            //        .HasForeignKey(d => d.ProductId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK__ShoppingCarts_ProductId");
 
 
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.ShoppingCarts)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShoppingCarts_UserId");
-            });
+            //    entity.HasOne(d => d.User)
+            //        .WithMany(p => p.ShoppingCarts)
+            //        .HasForeignKey(d => d.UserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK__ShoppingCarts_UserId");
+            //});
 
             modelBuilder.Entity<User>(entity =>
             {

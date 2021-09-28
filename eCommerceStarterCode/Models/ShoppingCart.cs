@@ -12,7 +12,7 @@ namespace eCommerceStarterCode.Models
         public int ShoppingCartId { get; set; }
 
        [ForeignKey("Product")]
-
+        public User User { get; set; }
         public int ProductId { get; set; }
 
         public Product Product { get; set; }
@@ -21,7 +21,7 @@ namespace eCommerceStarterCode.Models
 
         public string UserId { get; set; }
 
-        public User User { get; set; }
+        
 
         
        

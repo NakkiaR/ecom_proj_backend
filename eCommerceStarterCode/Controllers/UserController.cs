@@ -26,7 +26,7 @@ namespace eCommerceStarterCode.Controllers
         {
             var userId = User.FindFirstValue("id");
             var user = _context.Users.Find(userId);
-            if (user == null)
+            if(user == null)
             {
                 return NotFound();
             }
@@ -35,7 +35,7 @@ namespace eCommerceStarterCode.Controllers
 
         [HttpPost]
 
-        public IActionResult Post([FromBody] User value)
+        public IActionResult Post([FromBody]User value)
         {
             _context.Users.Add(value);
             _context.SaveChanges();

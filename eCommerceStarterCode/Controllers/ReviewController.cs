@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/review")]
     [ApiController]
     public class ReviewController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Review"), Authorize]
+        [HttpGet("review"), Authorize]
         public IActionResult GetCurrentReview()
         {
-            var reviewId = User.FindFirstValue("Id");
+            var reviewId = User.FindFirstValue("id");
             var review = _context.Users.Find(reviewId);
             if (review == null)
             {

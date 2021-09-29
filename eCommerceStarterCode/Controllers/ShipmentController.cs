@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/shipment")]
     [ApiController]
     public class ShipmentController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Shipment"), Authorize]
+        [HttpGet("shipment"), Authorize]
         public IActionResult GetCurrentShipment()
         {
-            var shipmentId = User.FindFirstValue("Id");
+            var shipmentId = User.FindFirstValue("id");
             var shipment = _context.Users.Find(shipmentId);
             if (shipment == null)
             {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/order")]
     [ApiController]
     public class OrderController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Order"), Authorize]
+        [HttpGet("order"), Authorize]
         public IActionResult GetCurrentOrder()
         {
-            var orderId = User.FindFirstValue("Id");
+            var orderId = User.FindFirstValue("id");
             var order = _context.Users.Find(orderId);
             if (order == null)
             {

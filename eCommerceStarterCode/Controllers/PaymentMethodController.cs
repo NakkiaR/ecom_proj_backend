@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/paymentmethod")]
     [ApiController]
     public class PaymentMethodController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("PaymentMethod"), Authorize]
+        [HttpGet("paymentmethod"), Authorize]
         public IActionResult GetCurrentPaymentMethod()
         {
-            var paymentMethodId = User.FindFirstValue("Id");
+            var paymentMethodId = User.FindFirstValue("id");
             var paymentMethod = _context.Users.Find(paymentMethodId);
             if (paymentMethod == null)
             {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Product"), Authorize]
+        [HttpGet("product"), Authorize]
         public IActionResult GetCurrentProduct()
         {
-            var productId = User.FindFirstValue("Id");
+            var productId = User.FindFirstValue("id");
             var product = _context.Users.Find(productId);
             if (product == null)
             {

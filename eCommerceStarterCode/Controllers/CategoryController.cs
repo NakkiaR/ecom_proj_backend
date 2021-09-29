@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/category")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Category"), Authorize]
+        [HttpGet("category"), Authorize]
         public IActionResult GetCurrentCategory()
         {
-            var categoryId = User.FindFirstValue("Id");
+            var categoryId = User.FindFirstValue("id");
             var category = _context.Users.Find(categoryId);
             if (category == null)
             {

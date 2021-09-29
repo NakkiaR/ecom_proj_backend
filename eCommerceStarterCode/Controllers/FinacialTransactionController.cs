@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/financialtransaction")]
     [ApiController]
     public class FinacialTransactionController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("FinacialTransaction"), Authorize]
+        [HttpGet("finacialtransaction"), Authorize]
         public IActionResult GetCurrentFinancialTransaction()
         {
-            var financialTransactionId = User.FindFirstValue("Id");
+            var financialTransactionId = User.FindFirstValue("id");
             var financialTransaction = _context.Users.Find(financialTransactionId);
             if (financialTransaction == null)
             {

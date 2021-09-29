@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {

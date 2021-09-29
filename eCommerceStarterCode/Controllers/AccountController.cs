@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/account")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("Account"), Authorize]
+        [HttpGet("account"), Authorize]
         public IActionResult GetCurrentAccount()
         {
-            var accountId = User.FindFirstValue("Id");
+            var accountId = User.FindFirstValue("id");
             var account = _context.Users.Find(accountId);
             if (account == null)
             {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/examples")]
+    [Route("api/shoppingcart")]
     [ApiController]
     public class ShoppingCartController : ControllerBase
     {
@@ -21,10 +21,10 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("ShoppingCart"), Authorize]
+        [HttpGet("shoppingcart"), Authorize]
         public IActionResult GetCurrentShoppingCart()
         {
-            var shoppingCartId = User.FindFirstValue("Id");
+            var shoppingCartId = User.FindFirstValue("id");
             var shoppingCart = _context.Users.Find(shoppingCartId);
             if (shoppingCart == null)
             {

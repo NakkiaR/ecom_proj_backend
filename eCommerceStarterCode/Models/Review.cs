@@ -9,10 +9,9 @@ namespace eCommerceStarterCode.Models
     public class Review
     {
 
-        public int ReviewId { get; set; }
+        public string ReviewId { get; set; }
         public string Name { get; set; }
         public string Comment { get; set; }
-
         public int Rating { get; set; }
 
 

@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fe8f05f5-d6ae-4f02-88dd-9e1c87ad780c",
-                            ConcurrencyStamp = "a8fee824-c239-4d3a-9940-76f5ce684ab0",
+                            Id = "e948df53-35fd-4042-97e7-c9c6e6596be6",
+                            ConcurrencyStamp = "1d85fc88-11d2-41b4-82ad-90846dccb889",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a25ef7c1-170a-4c65-b676-84c2b94a332c",
-                            ConcurrencyStamp = "c1a2cbcb-e3e7-4503-ad22-655c6c3b0244",
+                            Id = "9af50f6e-01fb-47d0-9fb1-f098e28550d4",
+                            ConcurrencyStamp = "b8457b24-ddfa-4457-8a11-daf0ae42685b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -422,10 +422,8 @@ namespace eCommerceStarterCode.Migrations
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
                 {
-                    b.Property<int>("ReviewId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ReviewId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
@@ -439,17 +437,14 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ReviewId");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -648,7 +643,7 @@ namespace eCommerceStarterCode.Migrations
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Product");
 

@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/user")]
+    [Route("api/examples")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class ExamplesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public UserController(ApplicationDbContext context)
+        public ExamplesController(ApplicationDbContext context)
         {
             _context = context;
         }
         // <baseurl>/api/examples/user
-        [HttpGet("user"), Authorize]
+        [HttpGet, Authorize]
         public IActionResult GetCurrentUser()
         {
             var userId = User.FindFirstValue("id");
@@ -33,13 +33,5 @@ namespace eCommerceStarterCode.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-
-        public IActionResult Post([FromBody]User value)
-        {
-            _context.Users.Add(value);
-            _context.SaveChanges();
-            return StatusCode(201, value);
-        }
     }
 }

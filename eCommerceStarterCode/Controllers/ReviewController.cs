@@ -24,8 +24,8 @@ namespace eCommerceStarterCode.Controllers
         [HttpGet("review"), Authorize]
         public IActionResult GetCurrentReview()
         {
-            var reviewId = User.FindFirstValue("id");
-            var review = _context.Users.Find(reviewId);
+            var userId = User.FindFirstValue("id");
+            var review = _context.Users.Find(userId);
             if (review == null)
             {
                 return NotFound();

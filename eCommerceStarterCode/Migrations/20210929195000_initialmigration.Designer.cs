@@ -10,8 +10,8 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210929165041_ReSeedRoles")]
-    partial class ReSeedRoles
+    [Migration("20210929195000_initialmigration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fe8f05f5-d6ae-4f02-88dd-9e1c87ad780c",
-                            ConcurrencyStamp = "a8fee824-c239-4d3a-9940-76f5ce684ab0",
+                            Id = "69087429-d074-439f-88a4-4f19468aa21e",
+                            ConcurrencyStamp = "41c572de-8ad2-4940-b9dd-5b7d731f3ae6",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a25ef7c1-170a-4c65-b676-84c2b94a332c",
-                            ConcurrencyStamp = "c1a2cbcb-e3e7-4503-ad22-655c6c3b0244",
+                            Id = "89d25c55-d22b-45e6-9730-1204f42bfd10",
+                            ConcurrencyStamp = "15c84ab2-e932-493f-b2fa-7e37314fb50c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -441,17 +441,14 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ReviewId");
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -650,7 +647,7 @@ namespace eCommerceStarterCode.Migrations
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Product");
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace eCommerceStarterCode.Models
         public DateTime OrderDate { get; set; }
         public int OrderAmount { get; set; }
 
-        [ForeignKey("User")]
-        public string UserId { get; set; }
-        public User User { get; set; }
+        [ForeignKey("IdentityUser")]
+        public string IdentityUserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }
 
         [ForeignKey("Product")]
         public string ProductId { get; set; }

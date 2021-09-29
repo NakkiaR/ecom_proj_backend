@@ -13,7 +13,6 @@ namespace eCommerceStarterCode.Data
         {
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<FinancialTransaction> FinancialTransactions { get; set; }
@@ -29,6 +28,9 @@ namespace eCommerceStarterCode.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new RolesConfiguration());
+
+
             modelBuilder.Entity<Category>()
                 .HasData(
                 new Category { CategoryId = 1, Name = "Red Giant", Description = "It's a star"}
@@ -39,7 +41,6 @@ namespace eCommerceStarterCode.Data
                 new Product {ProductId=1, Price = 35, Name = "Star", Description = "It's a star.", CategoryId = 1}
                 );
 
-            
         }
 
     }

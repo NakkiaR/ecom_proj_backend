@@ -20,18 +20,20 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
+        // /api/shoppingcart/all
 
-        [HttpGet("shoppingcart"), Authorize]
-        public IActionResult GetCurrentShoppingCart()
+        [HttpGet("all"), Authorize]
+        public IActionResult GetShoppingCartForUser()
         {
-            var shoppingCartId = User.FindFirstValue("id");
-            var shoppingCart = _context.Users.Find(shoppingCartId);
-            if (shoppingCart == null)
+            var userId = User.FindFirstValue("id");
+            var shoppingCarts = _context.ShoppingCarts.Where(sc => sc.UserId == userId);
+            if (shoppingCarts == null)
             {
                 return NotFound();
             }
-            return Ok(shoppingCart);
+            return Ok(shoppingCarts);
         }
+        // /api/shoppingcart
 
         [HttpPost]
 
@@ -41,5 +43,13 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
+
+
+        // /api/shoppingcart/4
+        //[HttpDelete("{productId}")]
+        //public IActionResult Delete(int productId)
+        //{
+
+        //}
     }
 }

@@ -16,14 +16,14 @@ namespace eCommerceStarterCode.Models
         public int Rating { get; set; }
 
 
-        [ForeignKey("ProductId")]
+        [ForeignKey("Product")]
 
         public int ProductId { get; set; }
 
         public Product Product { get; set; }
 
 
-        [ForeignKey("UserId")]
+        [ForeignKey("User")]
 
         public int UserId { get; set; }
 

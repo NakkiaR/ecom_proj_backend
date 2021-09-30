@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,15 +10,15 @@ namespace eCommerceStarterCode.Models
     public class ShoppingCart
     {
 
-        public int ShoppingCartId { get; set; }
+        public string ShoppingCartId { get; set; }
 
        [ForeignKey("Product")]
-        public int ProductId { get; set; }
+        public string ProductId { get; set; }
         public Product Product { get; set; }
 
-       [ForeignKey("User")]
-        public string UserId { get; set; }
-        public User  User { get; set; }
+       [ForeignKey("IdentityUser")]
+        public string IdentityUserId { get; set; }
+        public IdentityUser  IdentityUser { get; set; }
 
 
 

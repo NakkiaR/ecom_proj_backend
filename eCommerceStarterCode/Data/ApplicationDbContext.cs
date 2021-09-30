@@ -33,12 +33,12 @@ namespace eCommerceStarterCode.Data
 
             modelBuilder.Entity<Category>()
                 .HasData(
-                new Category { CategoryId = 1, Name = "Red Giant", Description = "It's a star"}
+                new Category { CategoryId = "1", Name = "Red Giant", Description = "It's a star"}
                 );
 
             modelBuilder.Entity<Product>()
                 .HasData(
-                new Product {ProductId=1, Price = 35, Name = "Star", Description = "It's a star.", CategoryId = 1}
+                new Product {ProductId="1", Price = 35, Name = "Star", Description = "It's a star.", CategoryId = "1"}
                 );
 
         }

@@ -26,7 +26,7 @@ namespace eCommerceStarterCode.Controllers
         public IActionResult GetShoppingCartForUser()
         {
             var userId = User.FindFirstValue("id");
-            var shoppingCarts = _context.ShoppingCarts.Where(sc => sc.UserId == userId);
+            var shoppingCarts = _context.ShoppingCarts.Where(sc => sc.IdentityUserId == userId);
             if (shoppingCarts == null)
             {
                 return NotFound();
@@ -46,10 +46,12 @@ namespace eCommerceStarterCode.Controllers
 
 
         // /api/shoppingcart/4
-        //[HttpDelete("{productId}")]
-        //public IActionResult Delete(int productId)
-        //{
-
-        //}
+        [HttpDelete("{productId}")]
+        public IActionResult Delete([FromBody] ShoppingCart value)
+        {
+            _context.ShoppingCarts.Remove(value);
+            _context.SaveChanges();
+            return StatusCode(201);
+        }
     }
 }

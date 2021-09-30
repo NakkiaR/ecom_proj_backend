@@ -79,7 +79,7 @@ namespace eCommerceStarterCode.Controllers
         }
 
 
-      
+
         //Deletes a product from the table. Should be done after the product is checked out. 
         // DELETE api/<ProductController>/<prodID>
         [HttpDelete("{ProductId}"), Authorize]
@@ -94,8 +94,8 @@ namespace eCommerceStarterCode.Controllers
 
 
 
-      
-        }
+
+    }
 
 
     //[HttpGet("sort/")]
@@ -116,5 +116,5 @@ namespace eCommerceStarterCode.Controllers
     //    }
 
 
-    }
 }
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,13 +9,13 @@ namespace eCommerceStarterCode.Models
 {
     public class Account
     {
-        public int AccountId { get; set; }
+        public string AccountId { get; set; }
 
-        [ForeignKey("User")]
+        [ForeignKey("IdentityUser")]
 
-        public string UserId { get; set; }
+        public string IdnetityUserId { get; set; }
 
-        public User User { get; set; }
+        public IdentityUser IdentityUser { get; set; }
 
         public int PaymentMethodCode { get; set; }
 

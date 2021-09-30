@@ -1,47 +1,58 @@
-﻿using eCommerceStarterCode.Configuration;
+﻿using AutoMapper;
+using eCommerceStarterCode.ActionFilters;
+using eCommerceStarterCode.Contracts;
+using eCommerceStarterCode.DataTransferObjects;
 using eCommerceStarterCode.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-
-namespace eCommerceStarterCode.Data
+namespace eCommerceStarterCode.Controllers
 {
-    public class ApplicationDbContext : IdentityDbContext
+    [Route("api/authentication")]
+    [ApiController]
+    public class AuthenticationController : ControllerBase
     {
-        public ApplicationDbContext(DbContextOptions options)
-            :base(options)
+        private readonly UserManager<User> _userManager;
+        private readonly IMapper _mapper;
+        private readonly IAuthenticationManager _authManager;
+        public AuthenticationController(IMapper mapper, UserManager<User> userManager, IAuthenticationManager authManager)
         {
+            _mapper = mapper;
+            _userManager = userManager;
+            _authManager = authManager;
         }
 
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<FinancialTransaction> FinancialTransactions { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<PaymentMethod> PaymentMethods { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Shipment> Shipments { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new RolesConfiguration());
+            var user = _mapper.Map<User>(userForRegistration);
 
-
-            modelBuilder.Entity<Category>()
-                .HasData(
-                new Category { CategoryId = 1, Name = "Red Giant", Description = "It's a star"}
-                );
-
-            modelBuilder.Entity<Product>()
-                .HasData(
-                new Product {ProductId="1", Price = 35, Name = "Star", Description = "It's a star.", CategoryId = 1}
-                );
-
+            var result = await _userManager.CreateAsync(user, userForRegistration.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.TryAddModelError(error.Code, error.Description);
+                }
+                return BadRequest(ModelState);
+            }
+            await _userManager.AddToRoleAsync(user, "USER");
+            return StatusCode(201, user);
         }
 
+        [HttpPost("login")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
+        {
+            if (!await _authManager.ValidateUser(user))
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new { Token = await _authManager.CreateToken() });
+        }
     }
 }

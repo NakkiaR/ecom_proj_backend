@@ -32,22 +32,23 @@ namespace eCommerceStarterCode.Controllers
         }
 
 
-
-        //[HttpGet("product"), Authorize]
-        //public IActionResult GetCurrentProduct()
-        //{
-        //    var productId = User.FindFirstValue("id");
-        //    var product = _context.Users.Find(productId);
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(product);
-        //}
+        //GET: api/<productcontroller>/<productID>
+        [HttpGet("product"), Authorize]
+        public IActionResult GetCurrentProduct()
+        {
+            var productId = User.FindFirstValue("id");
+            var product = _context.Users.Find(productId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
 
 
 
         // GET api/<ProductController>/<catergoryid>
+        //Filters products by category. 
         [HttpGet("{CategoryId}")]
         public IActionResult GetProductByCategory(int categoryId)
         {
@@ -56,8 +57,10 @@ namespace eCommerceStarterCode.Controllers
         }
 
 
+
+
         //api/<productcontroller>
-        [HttpPost]
+        [HttpPost, Authorize]
 
         public IActionResult Post([FromBody] Product value)
         {
@@ -66,11 +69,19 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(201, value);
         }
 
-        //// DELETE api/<ProductController>/5
-        //[HttpDelete]
-        //public void Delete(int id)
-        //{
+        //[HttpGet("{Id}")]
 
-        //}
+
+        // DELETE api/<ProductController>/<prodID>
+        [HttpDelete("{ProductId}"), Authorize]
+        public void Delete(string prodId)
+        {
+            var product = _context.Products.Where(p => p.ProductId == prodId);
+           foreach (Product prod in product)
+            {
+                _context.Products.Remove(prod);
+            }
+            _context.SaveChanges();
+        }
     }
 }

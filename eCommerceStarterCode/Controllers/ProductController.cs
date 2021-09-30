@@ -32,16 +32,26 @@ namespace eCommerceStarterCode.Controllers
         }
 
 
-        //GET: api/<productcontroller>/<productID>
-        [HttpGet("product"), Authorize]
-        public IActionResult GetCurrentProduct()
+        ////GET: api/<productcontroller>/<productID>
+        //[HttpGet("product/{ProductId}")]
+        //public IActionResult GetCurrentProduct()
+        //{
+        //    var productId = User.FindFirstValue("id");
+        //    var product = _context.Users.Find(productId);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(product);
+        //}
+
+
+        //not returning any content. There's likely a problem with the endpoint. Not entirely sure that we even need it
+        [HttpGet("{ProductId}/product")]
+
+        public IActionResult GetProdById(string prodId)
         {
-            var productId = User.FindFirstValue("id");
-            var product = _context.Users.Find(productId);
-            if (product == null)
-            {
-                return NotFound();
-            }
+            var product = _context.Products.Find(prodId);
             return Ok(product);
         }
 
@@ -71,7 +81,7 @@ namespace eCommerceStarterCode.Controllers
 
         
 
-
+        //Deletes a product from the table. Should be done after the product is checked out. 
         // DELETE api/<ProductController>/<prodID>
         [HttpDelete("{ProductId}"), Authorize]
 
@@ -82,6 +92,34 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
         }
 
-      
+
+
+
+        private void ProblemOne()
+        {
+            // Write a LINQ query that returns the number of users in the Users table.
+            // HINT: .ToList().Count
+            var users = _context.Users;
+            var numberOfUsers = users.ToList().Sort();
+            Console.WriteLine(numberOfUsers);
+
+        }
+
+
+        public void SortProductsByCategory ()
+        {
+            var catSort = _context.Products.OrderBy(p => p.CategoryId);
+
+            foreach (Product prod in catSort)
+            {
+                Console.WriteLine(prod.Name);
+            }
+
+
+
+
+        }
+
+
     }
 }

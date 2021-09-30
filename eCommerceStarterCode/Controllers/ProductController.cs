@@ -69,19 +69,19 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(201, value);
         }
 
-        //[HttpGet("{Id}")]
+        
 
 
         // DELETE api/<ProductController>/<prodID>
         [HttpDelete("{ProductId}"), Authorize]
-        public void Delete(string prodId)
+
+        public void Del(string ProductId)
         {
-            var product = _context.Products.Where(p => p.ProductId == prodId);
-           foreach (Product prod in product)
-            {
-                _context.Products.Remove(prod);
-            }
+            var prod = _context.Products.Find(ProductId);
+            _context.Products.Remove(prod);
             _context.SaveChanges();
         }
+
+      
     }
 }

@@ -21,15 +21,21 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("product"), Authorize]
-        public IActionResult GetCurrentProduct()
+        //[HttpGet("product"), Authorize]
+        //public IActionResult GetCurrentProduct()
+        //{
+        //    var productId = User.FindFirstValue("id");
+        //    var product = _context.Users.Find(productId);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(product);
+        //}
+        [HttpGet]
+        public IActionResult Get()
         {
-            var productId = User.FindFirstValue("id");
-            var product = _context.Users.Find(productId);
-            if (product == null)
-            {
-                return NotFound();
-            }
+            var product = _context.Products;
             return Ok(product);
         }
 

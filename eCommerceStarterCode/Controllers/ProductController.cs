@@ -33,6 +33,14 @@ namespace eCommerceStarterCode.Controllers
             return Ok(product);
         }
 
+        //// GET api/<ProductController>/5
+        //[HttpGet("{Id}")]
+        //public IActionResult GetSingleProduct(int id)
+        //{
+        //    var oneProduct = _context.Products.Where(p => p.Id == id);
+        //    return Ok(oneProduct);
+        //}
+
         [HttpPost]
 
         public IActionResult Post([FromBody] Product value)
@@ -41,5 +49,12 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
+
+        //// DELETE api/<ProductController>/5
+        //[HttpDelete]
+        //public void Delete(int id)
+        //{
+
+        //}
     }
 }

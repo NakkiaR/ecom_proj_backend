@@ -68,7 +68,6 @@ namespace eCommerceStarterCode.Controllers
 
 
 
-
         //api/<productcontroller>
         [HttpPost, Authorize]
 
@@ -79,8 +78,8 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(201, value);
         }
 
-        
 
+      
         //Deletes a product from the table. Should be done after the product is checked out. 
         // DELETE api/<ProductController>/<prodID>
         [HttpDelete("{ProductId}"), Authorize]
@@ -95,30 +94,26 @@ namespace eCommerceStarterCode.Controllers
 
 
 
-        private void ProblemOne()
-        {
-            // Write a LINQ query that returns the number of users in the Users table.
-            // HINT: .ToList().Count
-            var users = _context.Users;
-            var numberOfUsers = users.ToList().Sort();
-            Console.WriteLine(numberOfUsers);
-
+      
         }
 
 
-        public void SortProductsByCategory ()
-        {
-            var catSort = _context.Products.OrderBy(p => p.CategoryId);
+    //[HttpGet("sort/")]
+    //public IActionResult organizeByCat ()
+    //{
+    //        var catSort = _context.Products
+    //        .OrderBy(p => p.CategoryId);
 
-            foreach (Product prod in catSort)
-            {
-                Console.WriteLine(prod.Name);
-            }
+    //    foreach (Product prod in catSort)
+    //    {
+
+    //        return (prod.Name);
+    //    }
 
 
 
 
-        }
+    //    }
 
 
     }

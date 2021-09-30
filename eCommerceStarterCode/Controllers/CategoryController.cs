@@ -21,18 +21,24 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("category"), Authorize]
-        public IActionResult GetCurrentCategory()
+        //[HttpGet("category"), Authorize]
+        //public IActionResult GetCurrentCategory()
+        //{
+        //    var categoryId = User.FindFirstValue("id");
+        //    var category = _context.Users.Find(categoryId);
+        //    if (category == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(category);
+        //}
+
+        [HttpGet]
+        public IActionResult Get()
         {
-            var categoryId = User.FindFirstValue("id");
-            var category = _context.Users.Find(categoryId);
-            if (category == null)
-            {
-                return NotFound();
-            }
+            var category = _context.Categories;
             return Ok(category);
         }
-
 
 
         //private void ProblemFourteen()

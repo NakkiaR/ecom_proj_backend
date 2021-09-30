@@ -10,7 +10,7 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210929194136_initialmigration")]
+    [Migration("20210930031731_initialmigration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e948df53-35fd-4042-97e7-c9c6e6596be6",
-                            ConcurrencyStamp = "1d85fc88-11d2-41b4-82ad-90846dccb889",
+                            Id = "30e3529a-5585-430b-af12-eb27ed93a76a",
+                            ConcurrencyStamp = "0dc60e5d-e4c8-4dc2-b1a4-2c3d7b69dc76",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "9af50f6e-01fb-47d0-9fb1-f098e28550d4",
-                            ConcurrencyStamp = "b8457b24-ddfa-4457-8a11-daf0ae42685b",
+                            Id = "7db4e467-6f92-4e85-90bf-8b3f070cf639",
+                            ConcurrencyStamp = "9f92c60a-dbde-41e1-bcfc-7db70b1e7947",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -336,8 +336,8 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -388,10 +388,8 @@ namespace eCommerceStarterCode.Migrations
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Product", b =>
                 {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -414,7 +412,7 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
+                            ProductId = "1",
                             CategoryId = 1,
                             Description = "It's a star.",
                             Name = "Star",
@@ -427,14 +425,14 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("ReviewId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -444,7 +442,7 @@ namespace eCommerceStarterCode.Migrations
 
                     b.HasKey("ReviewId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -477,22 +475,20 @@ namespace eCommerceStarterCode.Migrations
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>
                 {
-                    b.Property<int>("ShoppingCartId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ShoppingCartId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("IdentityUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -600,9 +596,7 @@ namespace eCommerceStarterCode.Migrations
                 {
                     b.HasOne("eCommerceStarterCode.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
@@ -637,9 +631,9 @@ namespace eCommerceStarterCode.Migrations
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
                 {
-                    b.HasOne("eCommerceStarterCode.Models.Product", "Product")
+                    b.HasOne("eCommerceStarterCode.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -647,26 +641,24 @@ namespace eCommerceStarterCode.Migrations
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Product");
+                    b.Navigation("Category");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>
                 {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+
                     b.HasOne("eCommerceStarterCode.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
-                    b.HasOne("eCommerceStarterCode.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                    b.Navigation("IdentityUser");
 
                     b.Navigation("Product");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

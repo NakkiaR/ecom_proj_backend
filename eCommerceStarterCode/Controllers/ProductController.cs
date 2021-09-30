@@ -21,26 +21,42 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("product"), Authorize]
-        public IActionResult GetCurrentProduct()
+
+        //Get all products
+        //GET: api/<productcontroller>
+        [HttpGet]
+        public IActionResult GetAllProducts()
         {
-            var productId = User.FindFirstValue("id");
-            var product = _context.Users.Find(productId);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return Ok(product);
+            var products = _context.Products;
+            return Ok(products);
         }
 
-        //// GET api/<ProductController>/5
-        //[HttpGet("{Id}")]
-        //public IActionResult GetSingleProduct(int id)
+
+
+        //[HttpGet("product"), Authorize]
+        //public IActionResult GetCurrentProduct()
         //{
-        //    var oneProduct = _context.Products.Where(p => p.Id == id);
-        //    return Ok(oneProduct);
+        //    var productId = User.FindFirstValue("id");
+        //    var product = _context.Users.Find(productId);
+        //    if (product == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(product);
         //}
 
+
+
+        // GET api/<ProductController>/<catergoryid>
+        [HttpGet("{CategoryId}")]
+        public IActionResult GetProductByCategory(int categoryId)
+        {
+            var oneProduct = _context.Products.Where(c => c.CategoryId == categoryId);
+            return Ok(oneProduct);
+        }
+
+
+        //api/<productcontroller>
         [HttpPost]
 
         public IActionResult Post([FromBody] Product value)

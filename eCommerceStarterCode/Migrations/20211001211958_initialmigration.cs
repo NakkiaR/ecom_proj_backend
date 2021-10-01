@@ -58,8 +58,7 @@ namespace eCommerceStarterCode.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -218,7 +217,7 @@ namespace eCommerceStarterCode.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -228,7 +227,7 @@ namespace eCommerceStarterCode.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -365,8 +364,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "17290482-fe9f-44e7-bb66-22b4610c99d6", "c0df5765-e38e-4f9a-a881-d8367ef9718a", "User", "USER" },
-                    { "1f3b4288-2dd2-4d29-8fff-78de4e9cda2a", "cbb9f44f-8e33-474d-a0fa-06a1f51a7fe4", "Admin", "ADMIN" }
+                    { "f4ae52da-cb9e-4d3d-88eb-27691dabb96f", "7cfc685b-cf60-4915-9f94-6747546ce9f2", "User", "USER" },
+                    { "141b67cb-3b1a-45c3-bdb8-cb6d96e58436", "6d964637-e427-4bdf-a8c8-192e44da4f97", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -374,9 +373,9 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "CategoryId", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Buying a star in a constellation is an excellent option when it comes to naming a twinkling distant sun. Constellations are always much easier to remember and find, so choose your favorite star sign and name a part of the Zodiac.", "Zodiac" },
-                    { 2, "By choosing our Traditional Star offer, you can adopt a real star in space! Even better, the star you name is one which can be seen anywhere on Earth, at any time of the year. Your star will always be with you!", "Traditional Star" },
-                    { 3, "A binary star — or a double star — is a system of two gravitationally-connected stars orbiting around their common center of mass. Double stars are a great choice if you want to buy a star for two people, and even better for celebrating people who have a special connection.", "Double Star" }
+                    { "1", "Buying a star in a constellation is an excellent option when it comes to naming a twinkling distant sun. Constellations are always much easier to remember and find, so choose your favorite star sign and name a part of the Zodiac.", "Zodiac" },
+                    { "2", "By choosing our Traditional Star offer, you can adopt a real star in space! Even better, the star you name is one which can be seen anywhere on Earth, at any time of the year. Your star will always be with you!", "Traditional Star" },
+                    { "3", "A binary star — or a double star — is a system of two gravitationally-connected stars orbiting around their common center of mass. Double stars are a great choice if you want to buy a star for two people, and even better for celebrating people who have a special connection.", "Double Star" }
                 });
 
             migrationBuilder.InsertData(
@@ -384,25 +383,25 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "ProductId", "CategoryId", "Description", "Name", "Price" },
                 values: new object[,]
                 {
-                    { "1a", 1, "It's a star.", "Star", 50 },
-                    { "3a", 3, "Can be seen in small villages with minimal light around.", "Normal", 70 },
-                    { "2c", 2, "Can be seen in large cities with a lot of light around.", "Very Bright", 65 },
-                    { "2b", 2, "Can be seen in small cities with moderate light around.", "Bright", 50 },
-                    { "2a", 2, "Can be seen in small villages with minimal light around.", "Normal", 35 },
-                    { "1m", 1, "April 20 - May 20", "Taurus", 50 },
-                    { "1l", 1, "March 21- April 19", "Aries", 50 },
-                    { "1k", 1, "February 20 - March 20", "Pisces", 50 },
-                    { "3b", 3, "Can be seen in small cities with moderate light around.", "Bright", 85 },
-                    { "1j", 1, "January 20 - February 19", "Aquarius", 50 },
-                    { "1h", 1, "November 22 - December 21", "Sagitarius", 50 },
-                    { "1g", 1, "October 23 - November 21", "Scorpius", 50 },
-                    { "1f", 1, "September 23 - October 22", "Libra", 50 },
-                    { "1e", 1, "August 23- September 22", "Virgo", 50 },
-                    { "1d", 1, "July 23 - August 22", "Leo", 50 },
-                    { "1c", 1, "June 21 - July 22", "Cancer", 50 },
-                    { "1b", 1, "May 21 - June 20", "Gemini", 50 },
-                    { "1i", 1, "December 22 -January 19", "Capricorn", 50 },
-                    { "3c", 3, "Can be seen in large cities with a lot of light around.", "Very Bright", 110 }
+                    { "1a", "1", "It's a star.", "Star", 50 },
+                    { "3a", "3", "Can be seen in small villages with minimal light around.", "Normal", 70 },
+                    { "2c", "2", "Can be seen in large cities with a lot of light around.", "Very Bright", 65 },
+                    { "2b", "2", "Can be seen in small cities with moderate light around.", "Bright", 50 },
+                    { "2a", "2", "Can be seen in small villages with minimal light around.", "Normal", 35 },
+                    { "1m", "1", "April 20 - May 20", "Taurus", 50 },
+                    { "1l", "1", "March 21- April 19", "Aries", 50 },
+                    { "1k", "1", "February 20 - March 20", "Pisces", 50 },
+                    { "3b", "3", "Can be seen in small cities with moderate light around.", "Bright", 85 },
+                    { "1j", "1", "January 20 - February 19", "Aquarius", 50 },
+                    { "1h", "1", "November 22 - December 21", "Sagitarius", 50 },
+                    { "1g", "1", "October 23 - November 21", "Scorpius", 50 },
+                    { "1f", "1", "September 23 - October 22", "Libra", 50 },
+                    { "1e", "1", "August 23- September 22", "Virgo", 50 },
+                    { "1d", "1", "July 23 - August 22", "Leo", 50 },
+                    { "1c", "1", "June 21 - July 22", "Cancer", 50 },
+                    { "1b", "1", "May 21 - June 20", "Gemini", 50 },
+                    { "1i", "1", "December 22 -January 19", "Capricorn", 50 },
+                    { "3c", "3", "Can be seen in large cities with a lot of light around.", "Very Bright", 110 }
                 });
 
             migrationBuilder.CreateIndex(

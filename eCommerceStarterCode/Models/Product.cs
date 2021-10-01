@@ -15,7 +15,7 @@ namespace eCommerceStarterCode.Models
         public int Price { get; set; }
 
         [ForeignKey("Category")]
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public Category Category { get; set; }
 
     }

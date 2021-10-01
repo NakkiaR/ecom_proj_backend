@@ -60,7 +60,7 @@ namespace eCommerceStarterCode.Controllers
         // GET api/<ProductController>/<catergoryid>
         //Filters products by category. 
         [HttpGet("{CategoryId}")]
-        public IActionResult GetProductByCategory(int categoryId)
+        public IActionResult GetProductByCategory(string categoryId)
         {
             var oneProduct = _context.Products.Where(c => c.CategoryId == categoryId);
             return Ok(oneProduct);

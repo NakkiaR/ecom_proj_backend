@@ -12,22 +12,12 @@ namespace eCommerceStarterCode.Models
 
         public string ReviewId { get; set; }
         public string Name { get; set; }
+        public string ProductName { get; set; }
         public string Comment { get; set; }
         public int Rating { get; set; }
 
-
-        [ForeignKey("Category")]
-
-        public int CategoryId { get; set; }
-
-        public Category Category { get; set; }
-
-
-        [ForeignKey("IdentityUser")]
-
-        public string IdentityUserId { get; set; }
-
-        public IdentityUser IdentityUser { get; set; }
+       
+       
 
     }
 }

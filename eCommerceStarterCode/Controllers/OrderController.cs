@@ -21,7 +21,7 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("order"), Authorize]
+        [HttpGet, Authorize]
         public IActionResult GetCurrentOrder()
         {
             var orderId = User.FindFirstValue("id");

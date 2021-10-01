@@ -21,17 +21,7 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        //[HttpGet("category"), Authorize]
-        //public IActionResult GetCurrentCategory()
-        //{
-        //    var categoryId = User.FindFirstValue("id");
-        //    var category = _context.Users.Find(categoryId);
-        //    if (category == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(category);
-        //}
+       
 
         [HttpGet]
         public IActionResult Get()
@@ -39,23 +29,6 @@ namespace eCommerceStarterCode.Controllers
             var category = _context.Categories;
             return Ok(category);
         }
-
-
-        //private void ProblemFourteen()
-        //{
-        //    // Add the product you create to the user we created in the ShoppingCart junction table using LINQ.
-        //    var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).SingleOrDefault();
-        //    var productId = _context.Products.Where(p => p.Id == 8).Select(p => p.Id).SingleOrDefault();
-        //    ShoppingCart newProduct = new ShoppingCart()
-        //    {
-        //        UserId = userId,
-        //        ProductId = productId,
-        //        Quantity = 1,
-        //    };
-        //    _context.ShoppingCarts.Add(newProduct);
-        //    _context.SaveChanges();
-        //}
-
 
 
         [HttpPost]

@@ -10,7 +10,7 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211001020450_initialmigration")]
+    [Migration("20211001181042_initialmigration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "366a1316-c9f9-4fca-afeb-2cd4eae6811f",
-                            ConcurrencyStamp = "63ab0223-b3b9-40e2-a74a-9a1fbf62a167",
+                            Id = "17290482-fe9f-44e7-bb66-22b4610c99d6",
+                            ConcurrencyStamp = "c0df5765-e38e-4f9a-a881-d8367ef9718a",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "94b24e3d-a766-4473-9029-a1fc03a1566e",
-                            ConcurrencyStamp = "4a8bf23a-c5ae-49a8-844a-f6b0d5218a01",
+                            Id = "1f3b4288-2dd2-4d29-8fff-78de4e9cda2a",
+                            ConcurrencyStamp = "cbb9f44f-8e33-474d-a0fa-06a1f51a7fe4",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -586,8 +586,8 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ReviewId");
 

@@ -14,7 +14,7 @@ namespace eCommerceStarterCode.Models
         public string Name { get; set; }
         public string ProductName { get; set; }
         public string Comment { get; set; }
-        public int Rating { get; set; }
+        public string Rating { get; set; }
 
        
        

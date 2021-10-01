@@ -76,7 +76,7 @@ namespace eCommerceStarterCode.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Rating = table.Column<int>(type: "int", nullable: false)
+                    Rating = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -365,8 +365,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "366a1316-c9f9-4fca-afeb-2cd4eae6811f", "63ab0223-b3b9-40e2-a74a-9a1fbf62a167", "User", "USER" },
-                    { "94b24e3d-a766-4473-9029-a1fc03a1566e", "4a8bf23a-c5ae-49a8-844a-f6b0d5218a01", "Admin", "ADMIN" }
+                    { "17290482-fe9f-44e7-bb66-22b4610c99d6", "c0df5765-e38e-4f9a-a881-d8367ef9718a", "User", "USER" },
+                    { "1f3b4288-2dd2-4d29-8fff-78de4e9cda2a", "cbb9f44f-8e33-474d-a0fa-06a1f51a7fe4", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(

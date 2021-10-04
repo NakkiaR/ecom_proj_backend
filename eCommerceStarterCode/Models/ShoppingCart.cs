@@ -10,7 +10,7 @@ namespace eCommerceStarterCode.Models
     public class ShoppingCart
     {
 
-        public string ShoppingCartId { get; set; }
+        public int ShoppingCartId { get; set; }
 
        [ForeignKey("Product")]
         public string ProductId { get; set; }

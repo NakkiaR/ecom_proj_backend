@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8a5015b1-0b2f-465c-b593-b5bf15aea8fb",
-                            ConcurrencyStamp = "5f1ad036-b5cc-4c46-9a27-4e05c0b05dd3",
+                            Id = "9d8806b6-bda7-4e62-ba69-1624098ecea9",
+                            ConcurrencyStamp = "2e435126-54d5-4fd4-abba-5ac00fa335d7",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "bbc5516a-7ebc-47bd-b44f-68da8e8d7e12",
-                            ConcurrencyStamp = "c14efb02-0c85-4427-98a3-84d70dd92d54",
+                            Id = "cbb526f1-6a6d-4473-8b62-4042ca9293a3",
+                            ConcurrencyStamp = "42c9f239-90f5-4f5c-8b31-eb99b1174991",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -620,8 +620,10 @@ namespace eCommerceStarterCode.Migrations
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>
                 {
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ShoppingCartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");

@@ -310,7 +310,8 @@ namespace eCommerceStarterCode.Migrations
                 name: "ShoppingCarts",
                 columns: table => new
                 {
-                    ShoppingCartId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ShoppingCartId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     IdentityUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
@@ -364,8 +365,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "8a5015b1-0b2f-465c-b593-b5bf15aea8fb", "5f1ad036-b5cc-4c46-9a27-4e05c0b05dd3", "User", "USER" },
-                    { "bbc5516a-7ebc-47bd-b44f-68da8e8d7e12", "c14efb02-0c85-4427-98a3-84d70dd92d54", "Admin", "ADMIN" }
+                    { "9d8806b6-bda7-4e62-ba69-1624098ecea9", "2e435126-54d5-4fd4-abba-5ac00fa335d7", "User", "USER" },
+                    { "cbb526f1-6a6d-4473-8b62-4042ca9293a3", "42c9f239-90f5-4f5c-8b31-eb99b1174991", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(

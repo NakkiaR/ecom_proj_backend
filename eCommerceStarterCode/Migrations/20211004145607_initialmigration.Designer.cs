@@ -10,7 +10,7 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211001211958_initialmigration")]
+    [Migration("20211004145607_initialmigration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4ae52da-cb9e-4d3d-88eb-27691dabb96f",
-                            ConcurrencyStamp = "7cfc685b-cf60-4915-9f94-6747546ce9f2",
+                            Id = "8a5015b1-0b2f-465c-b593-b5bf15aea8fb",
+                            ConcurrencyStamp = "5f1ad036-b5cc-4c46-9a27-4e05c0b05dd3",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "141b67cb-3b1a-45c3-bdb8-cb6d96e58436",
-                            ConcurrencyStamp = "6d964637-e427-4bdf-a8c8-192e44da4f97",
+                            Id = "bbc5516a-7ebc-47bd-b44f-68da8e8d7e12",
+                            ConcurrencyStamp = "c14efb02-0c85-4427-98a3-84d70dd92d54",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -281,19 +281,19 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "Buying a star in a constellation is an excellent option when it comes to naming a twinkling distant sun. Constellations are always much easier to remember and find, so choose your favorite star sign and name a part of the Zodiac.",
                             Name = "Zodiac"
                         },
                         new
                         {
-                            CategoryId = "2",
+                            CategoryId = "Traditional Star",
                             Description = "By choosing our Traditional Star offer, you can adopt a real star in space! Even better, the star you name is one which can be seen anywhere on Earth, at any time of the year. Your star will always be with you!",
                             Name = "Traditional Star"
                         },
                         new
                         {
-                            CategoryId = "3",
+                            CategoryId = "Double Star",
                             Description = "A binary star — or a double star — is a system of two gravitationally-connected stars orbiting around their common center of mass. Double stars are a great choice if you want to buy a star for two people, and even better for celebrating people who have a special connection.",
                             Name = "Double Star"
                         });
@@ -419,7 +419,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1a",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "It's a star.",
                             Name = "Star",
                             Price = 50
@@ -427,7 +427,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1b",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "May 21 - June 20",
                             Name = "Gemini",
                             Price = 50
@@ -435,7 +435,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1c",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "June 21 - July 22",
                             Name = "Cancer",
                             Price = 50
@@ -443,7 +443,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1d",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "July 23 - August 22",
                             Name = "Leo",
                             Price = 50
@@ -451,7 +451,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1e",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "August 23- September 22",
                             Name = "Virgo",
                             Price = 50
@@ -459,7 +459,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1f",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "September 23 - October 22",
                             Name = "Libra",
                             Price = 50
@@ -467,7 +467,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1g",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "October 23 - November 21",
                             Name = "Scorpius",
                             Price = 50
@@ -475,7 +475,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1h",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "November 22 - December 21",
                             Name = "Sagitarius",
                             Price = 50
@@ -483,7 +483,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1i",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "December 22 -January 19",
                             Name = "Capricorn",
                             Price = 50
@@ -491,7 +491,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1j",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "January 20 - February 19",
                             Name = "Aquarius",
                             Price = 50
@@ -499,7 +499,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1k",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "February 20 - March 20",
                             Name = "Pisces",
                             Price = 50
@@ -507,7 +507,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1l",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "March 21- April 19",
                             Name = "Aries",
                             Price = 50
@@ -515,7 +515,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "1m",
-                            CategoryId = "1",
+                            CategoryId = "Zodiac",
                             Description = "April 20 - May 20",
                             Name = "Taurus",
                             Price = 50
@@ -523,7 +523,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "2a",
-                            CategoryId = "2",
+                            CategoryId = "Traditional Star",
                             Description = "Can be seen in small villages with minimal light around.",
                             Name = "Normal",
                             Price = 35
@@ -531,7 +531,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "2b",
-                            CategoryId = "2",
+                            CategoryId = "Traditional Star",
                             Description = "Can be seen in small cities with moderate light around.",
                             Name = "Bright",
                             Price = 50
@@ -539,7 +539,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "2c",
-                            CategoryId = "2",
+                            CategoryId = "Traditional Star",
                             Description = "Can be seen in large cities with a lot of light around.",
                             Name = "Very Bright",
                             Price = 65
@@ -547,7 +547,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "3a",
-                            CategoryId = "3",
+                            CategoryId = "Double Star",
                             Description = "Can be seen in small villages with minimal light around.",
                             Name = "Normal",
                             Price = 70
@@ -555,7 +555,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "3b",
-                            CategoryId = "3",
+                            CategoryId = "Double Star",
                             Description = "Can be seen in small cities with moderate light around.",
                             Name = "Bright",
                             Price = 85
@@ -563,7 +563,7 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ProductId = "3c",
-                            CategoryId = "3",
+                            CategoryId = "Double Star",
                             Description = "Can be seen in large cities with a lot of light around.",
                             Name = "Very Bright",
                             Price = 110

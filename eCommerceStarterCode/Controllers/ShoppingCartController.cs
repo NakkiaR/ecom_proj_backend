@@ -27,18 +27,31 @@ namespace eCommerceStarterCode.Controllers
         }
 
 
-       // GET api/ShoppingCart/{userId}
-        [HttpGet("{userId}"), Authorize]
-        public IActionResult GetAllCartsForUser(string id)
-        {
-            var userId = User.FindFirstValue("id");
-            var userCarts = _context.ShoppingCarts.Include(sc => sc.Product).Where(sc => sc.IdentityUserId == userId).Select(sc => sc.Product);
-            return Ok(userCarts);
+        // GET api/ShoppingCart/{userId}
+        //[HttpGet("{userId}"), Authorize]
+        //public IActionResult GetAllCartsForUser(string id)
+        //{
+        //    var userId = User.FindFirstValue("id");
+        //    var userCarts = _context.ShoppingCarts.Include(sc => sc.Product).Where(sc => sc.IdentityUserId == userId).Select(sc => sc.Product);
+        //    return Ok(userCarts);
 
-        }
+        //}
 
-        // POST: api/ShoppingCart/
-        [HttpPost]
+
+        //GET api/ShoppingCart/{userId
+    //}
+    [HttpGet("{userId}"), Authorize]
+    public IActionResult GetAllCartsForUser(string id)
+    {
+        var userId = User.FindFirstValue("id");
+        var userCarts = _context.ShoppingCarts.Include(sc => sc.Product).Where(sc => sc.IdentityUserId == userId);
+        return Ok(userCarts);
+    }
+
+
+
+    // POST: api/ShoppingCart/
+    [HttpPost]
 
         public IActionResult Post([FromBody] ShoppingCart value)
         {
@@ -50,14 +63,16 @@ namespace eCommerceStarterCode.Controllers
 
 
 
-        // DELETE api/<ShoppingCartController>/delete/<shoppingcartId>
-        [HttpDelete("delete/{productId}"), Authorize]
-        public void Delete(string id)
+        //DELETE api/<ShoppingCartController>/delete/<shoppingcartId>
+        [HttpDelete("delete/{id}"), Authorize]
+        public void Delete(int id)
         {
             var deleteFromCart = _context.ShoppingCarts.Find(id);
             _context.ShoppingCarts.Remove(deleteFromCart);
             _context.SaveChanges();
         }
+
+
 
 
 

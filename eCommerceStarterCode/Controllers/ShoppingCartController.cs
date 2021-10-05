@@ -51,8 +51,8 @@ namespace eCommerceStarterCode.Controllers
 
 
         // DELETE api/<ShoppingCartController>/delete/<shoppingcartId>
-        [HttpDelete("delete/{id}"), Authorize]
-        public void Delete(int id)
+        [HttpDelete("delete/{productId}"), Authorize]
+        public void Delete(string id)
         {
             var deleteFromCart = _context.ShoppingCarts.Find(id);
             _context.ShoppingCarts.Remove(deleteFromCart);

@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "607f9b46-86a1-42e6-865c-e57681d6b9f5",
-                            ConcurrencyStamp = "cf2c82ca-381f-4777-9f78-7174117a1663",
+                            Id = "a69156c4-8553-4954-8620-4ed2968ac982",
+                            ConcurrencyStamp = "0aa1fcf9-6fa5-4a64-8385-b2dc8e671295",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "11854cc9-62f6-43c3-89db-c25c73159e27",
-                            ConcurrencyStamp = "b90bb30f-43c1-4637-8bd9-c3d6cd0404b2",
+                            Id = "6b8a23ea-834b-4686-8f87-10f1dfbc0de5",
+                            ConcurrencyStamp = "5fd7b255-38a1-4311-8fd0-300065abea5d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -404,8 +404,8 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 
@@ -420,7 +420,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "It's a star.",
                             Name = "Star",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -428,7 +428,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "May 21 - June 20",
                             Name = "Gemini",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -436,7 +436,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "June 21 - July 22",
                             Name = "Cancer",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -444,7 +444,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "July 23 - August 22",
                             Name = "Leo",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -452,7 +452,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "August 23- September 22",
                             Name = "Virgo",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -460,7 +460,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "September 23 - October 22",
                             Name = "Libra",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -468,7 +468,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "October 23 - November 21",
                             Name = "Scorpius",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -476,7 +476,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "November 22 - December 21",
                             Name = "Sagitarius",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -484,7 +484,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "December 22 -January 19",
                             Name = "Capricorn",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -492,7 +492,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "January 20 - February 19",
                             Name = "Aquarius",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -500,7 +500,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "February 20 - March 20",
                             Name = "Pisces",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -508,7 +508,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "March 21- April 19",
                             Name = "Aries",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -516,7 +516,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Zodiac",
                             Description = "April 20 - May 20",
                             Name = "Taurus",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -524,7 +524,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Traditional Star",
                             Description = "Can be seen in small villages with minimal light around.",
                             Name = "Normal",
-                            Price = 35
+                            Price = "35"
                         },
                         new
                         {
@@ -532,7 +532,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Traditional Star",
                             Description = "Can be seen in small cities with moderate light around.",
                             Name = "Bright",
-                            Price = 50
+                            Price = "50"
                         },
                         new
                         {
@@ -540,7 +540,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Traditional Star",
                             Description = "Can be seen in large cities with a lot of light around.",
                             Name = "Very Bright",
-                            Price = 65
+                            Price = "65"
                         },
                         new
                         {
@@ -548,7 +548,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Double Star",
                             Description = "Can be seen in small villages with minimal light around.",
                             Name = "Normal",
-                            Price = 70
+                            Price = "70"
                         },
                         new
                         {
@@ -556,7 +556,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Double Star",
                             Description = "Can be seen in small cities with moderate light around.",
                             Name = "Bright",
-                            Price = 85
+                            Price = "85"
                         },
                         new
                         {
@@ -564,7 +564,7 @@ namespace eCommerceStarterCode.Migrations
                             CategoryId = "Double Star",
                             Description = "Can be seen in large cities with a lot of light around.",
                             Name = "Very Bright",
-                            Price = 110
+                            Price = "110"
                         });
                 });
 

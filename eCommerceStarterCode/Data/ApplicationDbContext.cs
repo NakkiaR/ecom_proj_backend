@@ -40,29 +40,29 @@ namespace eCommerceStarterCode.Data
 
             modelBuilder.Entity<Product>()
                 .HasData(
-                new Product { ProductId = "1a", Price = 50, Name = "Star", Description = "It's a star.", CategoryId = "Zodiac" },
-                new Product { ProductId = "1b", Price = 50, Name = "Gemini", Description = "May 21 - June 20", CategoryId = "Zodiac" },
-                new Product { ProductId = "1c", Price = 50, Name = "Cancer", Description = "June 21 - July 22", CategoryId = "Zodiac" },
-                new Product { ProductId = "1d", Price = 50, Name = "Leo", Description = "July 23 - August 22", CategoryId = "Zodiac" },
-                new Product { ProductId = "1e", Price = 50, Name = "Virgo", Description = "August 23- September 22", CategoryId = "Zodiac" },
-                new Product { ProductId = "1f", Price = 50, Name = "Libra", Description = "September 23 - October 22", CategoryId = "Zodiac" },
-                new Product { ProductId = "1g", Price = 50, Name = "Scorpius", Description = "October 23 - November 21", CategoryId = "Zodiac" },
-                new Product { ProductId = "1h", Price = 50, Name = "Sagitarius", Description = "November 22 - December 21", CategoryId = "Zodiac" },
-                new Product { ProductId = "1i", Price = 50, Name = "Capricorn", Description = "December 22 -January 19", CategoryId = "Zodiac" },
-                new Product { ProductId = "1j", Price = 50, Name = "Aquarius", Description = "January 20 - February 19", CategoryId = "Zodiac" },
-                new Product { ProductId = "1k", Price = 50, Name = "Pisces", Description = "February 20 - March 20", CategoryId = "Zodiac" },
-                new Product { ProductId = "1l", Price = 50, Name = "Aries", Description = "March 21- April 19", CategoryId = "Zodiac" },
-                new Product { ProductId = "1m", Price = 50, Name = "Taurus", Description = "April 20 - May 20", CategoryId = "Zodiac" },
+                new Product { ProductId = "1a", Price = "50", Name = "Star", Description = "It's a star.", CategoryId = "Zodiac" },
+                new Product { ProductId = "1b", Price = "50", Name = "Gemini", Description = "May 21 - June 20", CategoryId = "Zodiac" },
+                new Product { ProductId = "1c", Price = "50", Name = "Cancer", Description = "June 21 - July 22", CategoryId = "Zodiac" },
+                new Product { ProductId = "1d", Price = "50", Name = "Leo", Description = "July 23 - August 22", CategoryId = "Zodiac" },
+                new Product { ProductId = "1e", Price = "50", Name = "Virgo", Description = "August 23- September 22", CategoryId = "Zodiac" },
+                new Product { ProductId = "1f", Price = "50", Name = "Libra", Description = "September 23 - October 22", CategoryId = "Zodiac" },
+                new Product { ProductId = "1g", Price = "50", Name = "Scorpius", Description = "October 23 - November 21", CategoryId = "Zodiac" },
+                new Product { ProductId = "1h", Price = "50", Name = "Sagitarius", Description = "November 22 - December 21", CategoryId = "Zodiac" },
+                new Product { ProductId = "1i", Price = "50", Name = "Capricorn", Description = "December 22 -January 19", CategoryId = "Zodiac" },
+                new Product { ProductId = "1j", Price = "50", Name = "Aquarius", Description = "January 20 - February 19", CategoryId = "Zodiac" },
+                new Product { ProductId = "1k", Price = "50", Name = "Pisces", Description = "February 20 - March 20", CategoryId = "Zodiac" },
+                new Product { ProductId = "1l", Price = "50", Name = "Aries", Description = "March 21- April 19", CategoryId = "Zodiac" },
+                new Product { ProductId = "1m", Price = "50", Name = "Taurus", Description = "April 20 - May 20", CategoryId = "Zodiac" },
 
 
 
-                new Product { ProductId = "2a", Price = 35, Name = "Normal", Description = "Can be seen in small villages with minimal light around.", CategoryId = "Traditional Star" },
-                new Product { ProductId = "2b", Price = 50, Name = "Bright", Description = "Can be seen in small cities with moderate light around.", CategoryId = "Traditional Star" },
-                new Product { ProductId = "2c", Price = 65, Name = "Very Bright", Description = "Can be seen in large cities with a lot of light around.", CategoryId = "Traditional Star" },
+                new Product { ProductId = "2a", Price = "35", Name = "Normal", Description = "Can be seen in small villages with minimal light around.", CategoryId = "Traditional Star" },
+                new Product { ProductId = "2b", Price = "50", Name = "Bright", Description = "Can be seen in small cities with moderate light around.", CategoryId = "Traditional Star" },
+                new Product { ProductId = "2c", Price = "65", Name = "Very Bright", Description = "Can be seen in large cities with a lot of light around.", CategoryId = "Traditional Star" },
 
-                new Product { ProductId = "3a", Price = 70, Name = "Normal", Description = "Can be seen in small villages with minimal light around.", CategoryId = "Double Star" },
-                new Product { ProductId = "3b", Price = 85, Name = "Bright", Description = "Can be seen in small cities with moderate light around.", CategoryId = "Double Star" },
-                new Product { ProductId = "3c", Price = 110, Name = "Very Bright", Description = "Can be seen in large cities with a lot of light around.", CategoryId = "Double Star" });
+                new Product { ProductId = "3a", Price = "70", Name = "Normal", Description = "Can be seen in small villages with minimal light around.", CategoryId = "Double Star" },
+                new Product { ProductId = "3b", Price = "85", Name = "Bright", Description = "Can be seen in small cities with moderate light around.", CategoryId = "Double Star" },
+                new Product { ProductId = "3c", Price = "110", Name = "Very Bright", Description = "Can be seen in large cities with a lot of light around.", CategoryId = "Double Star" });
 
             
 

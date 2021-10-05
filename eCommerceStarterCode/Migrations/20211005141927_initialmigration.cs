@@ -216,7 +216,7 @@ namespace eCommerceStarterCode.Migrations
                     ProductId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -365,8 +365,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "607f9b46-86a1-42e6-865c-e57681d6b9f5", "cf2c82ca-381f-4777-9f78-7174117a1663", "User", "USER" },
-                    { "11854cc9-62f6-43c3-89db-c25c73159e27", "b90bb30f-43c1-4637-8bd9-c3d6cd0404b2", "Admin", "ADMIN" }
+                    { "a69156c4-8553-4954-8620-4ed2968ac982", "0aa1fcf9-6fa5-4a64-8385-b2dc8e671295", "User", "USER" },
+                    { "6b8a23ea-834b-4686-8f87-10f1dfbc0de5", "5fd7b255-38a1-4311-8fd0-300065abea5d", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -384,25 +384,25 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "ProductId", "CategoryId", "Description", "Name", "Price" },
                 values: new object[,]
                 {
-                    { "1a", "Zodiac", "It's a star.", "Star", 50 },
-                    { "3a", "Double Star", "Can be seen in small villages with minimal light around.", "Normal", 70 },
-                    { "2c", "Traditional Star", "Can be seen in large cities with a lot of light around.", "Very Bright", 65 },
-                    { "2b", "Traditional Star", "Can be seen in small cities with moderate light around.", "Bright", 50 },
-                    { "2a", "Traditional Star", "Can be seen in small villages with minimal light around.", "Normal", 35 },
-                    { "1m", "Zodiac", "April 20 - May 20", "Taurus", 50 },
-                    { "1l", "Zodiac", "March 21- April 19", "Aries", 50 },
-                    { "1k", "Zodiac", "February 20 - March 20", "Pisces", 50 },
-                    { "3b", "Double Star", "Can be seen in small cities with moderate light around.", "Bright", 85 },
-                    { "1j", "Zodiac", "January 20 - February 19", "Aquarius", 50 },
-                    { "1h", "Zodiac", "November 22 - December 21", "Sagitarius", 50 },
-                    { "1g", "Zodiac", "October 23 - November 21", "Scorpius", 50 },
-                    { "1f", "Zodiac", "September 23 - October 22", "Libra", 50 },
-                    { "1e", "Zodiac", "August 23- September 22", "Virgo", 50 },
-                    { "1d", "Zodiac", "July 23 - August 22", "Leo", 50 },
-                    { "1c", "Zodiac", "June 21 - July 22", "Cancer", 50 },
-                    { "1b", "Zodiac", "May 21 - June 20", "Gemini", 50 },
-                    { "1i", "Zodiac", "December 22 -January 19", "Capricorn", 50 },
-                    { "3c", "Double Star", "Can be seen in large cities with a lot of light around.", "Very Bright", 110 }
+                    { "1a", "Zodiac", "It's a star.", "Star", "50" },
+                    { "3a", "Double Star", "Can be seen in small villages with minimal light around.", "Normal", "70" },
+                    { "2c", "Traditional Star", "Can be seen in large cities with a lot of light around.", "Very Bright", "65" },
+                    { "2b", "Traditional Star", "Can be seen in small cities with moderate light around.", "Bright", "50" },
+                    { "2a", "Traditional Star", "Can be seen in small villages with minimal light around.", "Normal", "35" },
+                    { "1m", "Zodiac", "April 20 - May 20", "Taurus", "50" },
+                    { "1l", "Zodiac", "March 21- April 19", "Aries", "50" },
+                    { "1k", "Zodiac", "February 20 - March 20", "Pisces", "50" },
+                    { "3b", "Double Star", "Can be seen in small cities with moderate light around.", "Bright", "85" },
+                    { "1j", "Zodiac", "January 20 - February 19", "Aquarius", "50" },
+                    { "1h", "Zodiac", "November 22 - December 21", "Sagitarius", "50" },
+                    { "1g", "Zodiac", "October 23 - November 21", "Scorpius", "50" },
+                    { "1f", "Zodiac", "September 23 - October 22", "Libra", "50" },
+                    { "1e", "Zodiac", "August 23- September 22", "Virgo", "50" },
+                    { "1d", "Zodiac", "July 23 - August 22", "Leo", "50" },
+                    { "1c", "Zodiac", "June 21 - July 22", "Cancer", "50" },
+                    { "1b", "Zodiac", "May 21 - June 20", "Gemini", "50" },
+                    { "1i", "Zodiac", "December 22 -January 19", "Capricorn", "50" },
+                    { "3c", "Double Star", "Can be seen in large cities with a lot of light around.", "Very Bright", "110" }
                 });
 
             migrationBuilder.CreateIndex(
